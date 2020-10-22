@@ -1,0 +1,21 @@
+Début moyenne
+	VARIABLES LOCALES
+		var entree : N <-0
+		var moyenne : N <- 0
+		var compteur : N <- 0
+	FIN VARIABLES LOCALES
+	
+	Ecrire "Veuillez entrer une série de nombre pour en calculer la moyenne. Pour sortir tapez 100"
+	Saisir entree
+	TANT QUE entree != 100
+		moyenne <- moyenne + entree
+		compteur <- compteur + 1
+		Ecrire "Veuillez entrer une série de nombre pour en calculer la moyenne. Pour sortir tapez 100"
+		Saisir entree
+	FIN TANT QUE	
+	
+	SI compteur =/= 0	
+		Ecrire "La moyenne est :", moyenne/compteur
+	FIN SI
+
+Fin moyenne

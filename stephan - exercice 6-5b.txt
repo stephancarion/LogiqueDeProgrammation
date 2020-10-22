@@ -1,0 +1,57 @@
+DEBUT plus grand
+	VARIABLES LOCALES
+		var texte1 : T <- ""
+		var texte2 : T <- ""
+		var position : N <- 0
+		var positionMax : N <- 0
+		var differenceTrouvee :  B <- Faux
+		var texte1PlusGrandQueTexte2 : B <- Faux
+	FIN VARIABLES LOCALES
+	
+	AFFICHER "Entrez un premier texte"
+	SAISIR texte1
+	AFFICHER "Entrez un deuxième texte"
+	SAISIR texte2
+	
+	SI longueur(texte1) <= longueur(texte2)
+		ALORS
+			positionMax <- longueur(texte1)
+		SINON
+			positionMax <- longueur (texte2)
+	FINSI
+	
+	differenceTrouvee <- Faux
+	position <- 1
+	TANT QUE NON(differenceTrouvee) ET position <= positionMax
+		SI caract(texte1,position) =/= caract(texte2,position)
+					ALORS	
+						differenceTrouvee <- Vrai
+						SI caract(texte1, position) > caract(texte2,position)
+							ALORS
+								texte1PlusGrandQueTexte2 <- Vrai
+							SINON
+								texte1PlusGrandQueTexte2 <- Faux
+						FINSI
+		FINSI
+		position <- position + 1
+	FIN TANT QUE
+	
+	SI NON(differenceTrouvee) ET longueur(texte1) =/= longueur(texte2)
+		ALORS
+			differenceTrouvee <- Vrai
+			SI longueur(texte1) > longueur(texte2)
+				ALORS
+					texte1PlusGrandQueTexte2 <- Vrai
+				SINON
+					texte1PlusGrandQueTexte2 <- Faux
+			FINSI
+	FINSI
+	
+	SI differenceTrouvee
+		ALORS
+			AFFICHER "Texte 1 plus grand que texte 2 est : ", texte1PlusGrandQueTexte2
+		SINON
+			AFFICHER "Les 2 textes sont identiques"
+	FINSI
+		
+FIN plus grand

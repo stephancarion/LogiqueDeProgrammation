@@ -1,0 +1,21 @@
+DEBUT ex2
+	DEBUT DECLARATION DES VARIABLES LOCALES
+		CONST TAILLE : N <- 12
+		VAR classe : Personne[TAILLE]
+	FIN DECLARATION DES VARIABLES LOCALES
+	
+	POUR i ALLANT DE 1 A TAILLE
+		classe[i] <- CREER Personne
+		classe[i].ddn <- CREER Date
+		AFFICHER "Veuillez saisir un nom"
+		SAISIR classe[i].nom
+		AFFICHER "Veuillez saisir un prénom"
+		SAISIR classe[i].prenom
+		AFFICHER "Veuillez saisir un jour de naissance"
+		SAISIR classe[i].ddn.jour
+		AFFICHER "Veuillez saisir un mois de naissance"
+		SAISIR classe[i].ddn.mois
+		AFFICHER "Veuillez saisir une année de naissance"
+		SAISIR classe[i].ddn.an
+	i SUIVANT
+FIN ex2

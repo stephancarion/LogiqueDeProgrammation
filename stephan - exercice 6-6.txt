@@ -1,0 +1,19 @@
+DEBUT inversion caractères
+	VARIABLES LOCALES
+		var texte : T <- ""
+		var texteInverse : T <- ""
+		var position : N <- 0
+	FIN VARIABLES LOCALES
+	
+	AFFICHER "Entrez du texte"
+	SAISIR texte
+	
+	SI longueur(texte) =/= 0
+		ALORS
+			POUR position ALLANT de longueur(texte) A 1 PAR PAS DE -1
+				texteInverse <- texteInverse (+) caract(texte, position)
+			position SUIVANT
+	FINSI
+	
+	AFFICHER "Texte inversé : ", texteInverse	
+FIN inversion caractères

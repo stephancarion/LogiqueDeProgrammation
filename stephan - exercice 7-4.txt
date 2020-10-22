@@ -1,0 +1,15 @@
+DEBUT inversion vecteur
+	VARIABLES LOCALES
+		const TAILLE : N <- 10
+		var tab : N[TAILLE]
+		var i : N <- 0
+		var temp : N <- 0
+	FIN VARIABLES LOCALES
+	
+	POUR i ALLANT DE 1 A TAILLE/2
+		temp <- tab[i]
+		tab[i] <- tab[TAILLE - i + 1]
+		tab[TAILLE - i + 1] <- temp
+	i SUIVANT
+
+FIN inversion vecteur

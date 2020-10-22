@@ -1,0 +1,40 @@
+DEBUT nombres premiers
+	VARIABLES LOCALES
+		CONST TAILLE : N <- 100
+		VAR nombre : N <- 0
+		VAR compteur : N <- 0
+		VAR indice : N <- 0
+		VAR estPremier : B <- Vrai
+		VAR tabNombresPremiers : N[TAILLE]		
+	FIN VARIABLES LOCALES	
+	
+	nombre <- 5
+	
+	AFFICHER 2
+	AFFICHER 3
+	tabNombresPremiers[1] <- 2	
+	tabNombresPremiers[2] <- 3
+	compteur <- 2
+	TANT QUE compteur < 100
+		indice <- 2
+		estPremier <- Vrai
+		TANT QUE tabNombresPremiers[indice] * tabNombresPremiers[indice] <= nombre ET estPremier
+			SI nombre MOD tabNombresPremiers[indice] = 0
+				ALORS
+					estPremier <- Faux
+				SINON
+					indice <- indice + 1
+			FINSI
+		FIN TANT QUE
+		
+		SI estPremier
+			ALORS
+				AFFICHER nombre
+				compteur <- compteur + 1
+				tabNombresPremiers[compteur] <- nombre				
+		FINSI
+		
+		nombre <- nombre + 2
+	FIN TANT QUE
+	
+FIN nombres premiers

@@ -1,0 +1,15 @@
+DEBUT somme des suivants
+	VARIABLES LOCALES
+		const TAILLE : N <- 10
+		var tab : N[TAILLE]
+		var i : N <- 0
+		somme : N <- 0
+	FIN VARIABLES LOCALES
+	
+	somme <- tab[TAILLE]
+	POUR i ALLANT DE TAILLE - 1 A 1 PAR PAS DE -1
+		somme <- somme + tab[i]
+		tab[i] <- somme 
+	i SUIVANT
+
+FIN somme des suivants

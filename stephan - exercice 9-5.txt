@@ -1,0 +1,45 @@
+DEBUT rotation matrice carrée-version 1
+	VARIABLES LOCALES
+		CONST TAILLE : N <- 4
+		VAR tab : N[TAILLE][TAILLE]
+		VAR tabIntermediaire : N[TAILLE][TAILLE]
+		VAR ligne : N <- 0
+		VAR colonne : N <- 0
+	FIN VARIABLES LOCALES
+	
+	POUR ligne ALLANT DE 1 A TAILLE
+		POUR colonne ALLANT DE 1 A TAILLE
+			tabIntermediaire[colonne][TAILLE-ligne+1] <- tab[ligne][colonne]
+		colonne SUIVANT
+	ligne SUIVANT
+
+	POUR ligne ALLANT DE 1 A TAILLE
+		POUR colonne ALLANT DE 1 A TAILLE
+			tab[ligne][colonne] <- tabIntermediaire[ligne][colonne]
+		colonne SUIVANT
+	ligne SUIVANT
+FIN rotation matrice carrée-version 1
+
+**********************************************************************************
+
+DEBUT rotation matrice carrée-version 2
+	VARIABLES LOCALES
+		CONST TAILLE : N <- 4
+		VAR tab : N[TAILLE][TAILLE]
+		VAR ligne : N <- 0
+		VAR colonne : N <- 0
+		VAR temp : N <- 0
+	FIN VARIABLES LOCALES
+	
+	POUR ligne ALLANT DE 1 A TAILLE/2
+		POUR colonne ALLANT DE ligne A TAILLE - ligne	
+			temp <- tab[ligne][colonne]	
+			tab[ligne][colonne] <- tab[TAILLE-colonne+1][ligne]
+			tab[TAILLE-colonne+1][ligne] <- tab[TAILLE-ligne+1][TAILLE-colonne+1]
+			tab[TAILLE-ligne+1][TAILLE-colonne+1] <- tab[colonne][TAILLE-ligne+1]
+			tab[colonne][TAILLE-ligne+1] <- temp
+		colonne SUIVANT
+	ligne SUIVANT
+	
+	
+FIN rotation matrice carrée-version 2

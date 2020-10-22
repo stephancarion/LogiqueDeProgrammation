@@ -1,0 +1,36 @@
+DEBUT min max vecteur
+	VARIABLES LOCALES
+		const TAILLE : N <- 10
+		var tab : N[TAILLE]
+		var i : N <- 0
+		var min : N <- 0
+		var max : N <- 0
+		var imin : N <- 0
+		var imax : N <- 0
+	FIN VARIABLES LOCALES
+
+	// remplir le tableau, non demandé
+	POUR i ALLANT DE 1 A TAILLE
+		AFFICHER "Entrer la valeur de case N°", i
+		SAISIR tab[i]	
+	i SUIVANT
+	
+	min <- tab[1]
+	imin <- 1
+	max <- tab[1]
+	imax <- 1
+	
+	POUR i ALLANT DE 2 A TAILLE
+		SI tab[i] < min
+			ALORS
+				min <- tab[i]
+				imin <- i
+			SINON
+				SI tab[i] > max
+					ALORS
+						max <- tab[i]
+						imax <- i					
+				FINSI
+		FINSI
+	i SUIVANT
+FIN min max vecteur

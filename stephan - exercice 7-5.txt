@@ -1,0 +1,23 @@
+DEBUT inversion vecteur
+	VARIABLES LOCALES
+		const TAILLE : N <- 20
+		var tab : C[TAILLE]
+		var tabCopieSansEspace : C[TAILLE]
+		var i : N <- 0
+		var j : N <- 0
+	FIN VARIABLES LOCALES
+	
+	j <- 1
+	POUR i ALLANT DE 1 A TAILLE
+		SI tab[i] =/= ' '
+			ALORS
+				tabCopieSansEspace[j] <- tab[i]
+				j <- j + 1
+		FINSI
+	i SUIVANT
+	
+	POUR j ALLANT DE j A TAILLE
+		tabCopieSansEspace[j] <- ' '
+	j SUIVANT
+
+FIN inversion vecteur

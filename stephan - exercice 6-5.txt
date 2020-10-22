@@ -1,0 +1,73 @@
+DEBUT plus grand
+	VARIABLES LOCALES
+		var texte1 : T <- ""
+		var texte2 : T <- ""
+		var positionTexte1 : N <- 0
+		var positionTexte2 : N <- 0
+		var premierTexteEstPlusGrand : B <- Faux
+		var estIdentique : B <- Vrai
+	FIN VARIABLES LOCALES
+	
+	AFFICHER "Entrez un premier texte"
+	SAISIR texte1
+	AFFICHER "Entrez un deuxième texte"
+	SAISIR texte2
+	
+	
+	SI longueur(texte1) = 0 ET longueur(texte2) = 0
+		ALORS
+			estIdentique <- Vrai
+		SINON
+			SI longueur(texte1) > 0 ET longueur(texte2) = 0
+				ALORS // 1ère chaîne de caractères contient du texte. La 2ème chaine de caractères est vide.
+					estIdentique <- Faux
+					premierTexteEstPlusGrand <- Vrai
+				SINON
+					SI longueur(texte2) > 0 ET longueur(texte1) = 0
+						ALORS // 2e chaîne de caractères contient du texte. La 1ère chaine de caractères est vide.
+							estIdentique <- Faux
+							premierTexteEstPlusGrand <- Faux
+						SINON // Les 2 chaînes de caractères contiennent du texte.
+							positionTexte1 <-  1 
+							positionTexte2 <-  1
+							estIdentique <- Vrai // Les 2 chaînes sont identiques tant qu'on ne trouve pas de différence et que les positions sont accesibles (pas de dépassement de bornes)
+							TANT QUE estIdentique ET positionTexte1 <= longueur(texte1) ET positionTexte2 <= longueur(texte2)	
+								
+								SI caract(texte1,positionTexte1) =/= caract(texte2,positionTexte2)
+									ALORS
+										estIdentique <- Faux
+										SI caract(texte1,positionTexte1) > caract(texte2,positionTexte2)
+											ALORS
+												premierTexteEstPlusGrand <- Vrai
+										FINSI
+									SINON
+										SI longueur(texte2) > longueur(texte1) ET positionTexte1 = longueur(texte1)
+											ALORS // Le texte 2 est plus long que le texte 1 et on se trouve en dernière position du texte 1
+												estIdentique <- Faux
+												premierTexteEstPlusGrand <- Faux
+											SINON
+												SI longueur(texte1) > longueur(texte2) ET positionTexte2 = longueur(texte2)
+													ALORS // Le texte 1 est plus long que le texte 2 et on se trouve en dernière position du texte 2
+														estIdentique <- Faux
+														premierTexteEstPlusGrand <- Vrai
+													SINON
+														// on avance les positions
+														positionTexte1 + 1 
+														positionTexte2 + 1
+												FINSI
+										FINSI
+								FINSI								
+							FIN TANT QUE
+							
+					FINSI
+				
+			FINSI
+	FINSI
+
+	
+	SI NON(estIdentique)
+		ALORS
+			AFFICHER "Texte 1 plus grand que texte2 ?", estPlusGrand
+	FINSI
+		
+FIN plus grand

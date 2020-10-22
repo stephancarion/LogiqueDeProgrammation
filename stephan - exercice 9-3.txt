@@ -1,0 +1,34 @@
+DEBUT moyenne, min, max par ligne
+	VARIABLES LOCALES
+		CONST NB_LIGNE : N <- 4
+		CONST NB_COLONNE : N <- 3
+		VAR tab : N[NB_LIGNE][NB_COLONNE]
+		VAR ligne : N <- 0
+		VAR colonne : N <- 0
+		VAR somme : N <- 0
+		VAR min : N <- 0
+		VAR max : N <- 0
+	FIN VARIABLES LOCALES	
+		
+	POUR ligne ALLANT DE 1 A NB_LIGNE
+		somme <-tab[ligne][1]
+		min <- tab[ligne][1]
+		max <- tab[ligne][1]
+		POUR colonne ALLANT DE 2 A NB_COLONNE
+				somme <- somme + tab[ligne][colonne]
+				SI tab[ligne][colonne] < min
+					ALORS
+						min <- tab[ligne][colonne]
+					SINON 
+						SI tab[ligne][colonne] > max
+							ALORS
+								max <- tab[ligne][colonne]
+						FINSI
+				FINSI				
+		colonne SUIVANT
+		AFFICHER "La moyenne de la ligne ", ligne, " est ", somme/NB_COLONNE
+		AFFICHER "Le minimum de la ligne ", ligne, " est ", min
+		AFFICHER "Le maximum de la ligne ", ligne, " est ", max
+	ligne SUIVANT
+	
+FIN moyenne, min, max par ligne

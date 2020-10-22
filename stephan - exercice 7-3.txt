@@ -1,0 +1,14 @@
+DEBUT vecteur X2
+	VARIABLES LOCALES
+		const TAILLE : N <- 16
+		var tab : N[TAILLE]
+		var i : N <- 0
+	FIN VARIABLES LOCALES
+	
+	tab[1]=1
+	
+	POUR i ALLANT DE 2 A TAILLE
+		tab[i]  <- tab[i-1] * 2	
+	i SUIVANT
+
+FIN vecteur X2

@@ -1,0 +1,77 @@
+DEBUT compteur digital -v1
+	DEBUT variables locales
+		VAR unites : N <- 0
+		VAR dizaines : N <- 0
+		VAR centaines : N <- 0
+	FIN variables locales
+	
+	POUR centaines ALLANT DE 0 A 9
+		POUR dizaines ALLANT DE 0 A 9
+			POUR unites ALLANT DE 0 A 9
+				AFFICHER centaines, dizaines, unites
+			unites SUIVANT
+		dizaines SUIVANT
+	centaines SUIVANT
+
+FIN compteur digital -v1
+
+DEBUT compteur digital -v2
+	DEBUT variables locales
+		VAR nombre : N <- 0
+	FIN variables locales
+	
+	POUR nombre ALLANT de 0 A 999
+		AFFICHER nombre DIV 100, (nombre MOD 100) DIV 10, (nombre MOD 10)
+	nombre SUIVANT
+
+FIN compteur digital -v2
+
+DEBUT compteur digital -v3
+	DEBUT variables locales
+		VAR nombre : N <- 0
+	FIN variables locales
+	
+	POUR nombre ALLANT de 0 A 9
+		AFFICHER "00", nombre
+	nombre SUIVANT
+	
+	POUR nombre ALLANT de 10 A 99
+		AFFICHER "0", nombre
+	nombre SUIVANT
+	
+	POUR nombre ALLANT de 100 A 999
+		AFFICHER nombre
+	nombre SUIVANT
+
+FIN compteur digital -v3
+
+DEBUT compteur digital -v4
+	DEBUT variables locales
+		VAR unites : N <- 0
+		VAR dizaines : N <- 0
+		VAR centaines : N <- 0
+		VAR i : N <- 0
+	FIN variables locales
+	
+	
+	POUR i ALLANT DE 1 A 999
+		unites <- unites + 1
+		
+		SI unites = 10
+			ALORS
+				dizaines <- dizaines + 1
+				unites <- 0				
+		FINSI
+		
+		SI dizaines = 10
+			ALORS
+				centaines <- centaines + 1
+				dizaines <- 0				
+		FINSI
+		
+		AFFICHER centaines, dizaines, unites
+		
+		
+	i SUIVANT
+
+FIN compteur digital -v4

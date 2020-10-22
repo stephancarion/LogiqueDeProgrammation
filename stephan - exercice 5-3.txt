@@ -1,0 +1,32 @@
+DEBUT découverte d'une valeur
+	VARIABLES LOCALES
+		var nbreAleatoire : N <- aléatoire(100)
+		var tentative : N <- -1
+		var nbreCoupsRestant : N <- 10
+	FIN VARIABLES LOCALES
+	
+	ECRIRE "Entrez un nombre entier entre 0 et 100 (", nbreCoupsRestant, " coups restant)"
+	SAISIR tentative
+	nbreCoupsRestant <- nbreCoupsRestant - 1
+	
+	TANT QUE tentative =/= nbreAleatoire ET nbreCoupsRestant > 0
+		SI tentative < nbreAleatoire
+			ALORS
+				ECRIRE "C'est plus grand"
+			SINON
+				ECRIRE "C'est plus petit"
+		FINSI	
+		
+		ECRIRE "Entrez un nombre entier entre 0 et 100 (", nbreCoupsRestant, " coups restant)"
+		SAISIR tentative
+		nbreCoupsRestant <- nbreCoupsRestant - 1	
+	FIN TANT QUE
+	
+	SI tentative=nbreAleatoire
+		ALORS
+			ECRIRE "Gagné !"
+		SINON
+			ECRIRE "Perdu !"
+	FINSI
+	
+FIN découverte d'une valeur

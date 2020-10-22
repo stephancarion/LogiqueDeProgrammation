@@ -1,0 +1,25 @@
+DEBUT diagonale tableau rectangulaire
+	VARIABLES LOCALES
+		CONST LONGUEUR : N <- 11
+		CONST LARGEUR : N <- 4
+		VAR tab : N[LARGEUR][LONGUEUR]
+		VAR iLongueur : N <- 0
+		VAR iLargeur : N <- 0
+		VAR longueurStart : N <- 0
+		VAR longueurStop : N <- 0
+	FIN VARIABLES LOCALES
+	
+	longueurStop <- 0
+	POUR iLargeur ALLANT DE 1 A LARGEUR
+		longueurStart <- longueurStop + 1
+		longueurStop <- (LONGUEUR * iLargeur) DIV LARGEUR
+		SI (LONGUEUR * iLargeur) MOD LARGEUR >= 0,5
+			ALORS
+				longueurStop <- longueurStop + 1
+		FINSI
+		POUR iLongueur ALLANT DE longueurStart A longueurStop
+			tab[iLargeur][iLongueur] <- 1
+		iLongueur SUIVANT	
+	iLargeur SUIVANT
+	
+FIN diagonale tableau rectangulaire

@@ -1,0 +1,58 @@
+DEBUT recherche plus longue sous-chaîne
+	DEBUT variables locales
+		CONST TAILLE : N <- 100
+		VAR tab : N[TAILLE + 1][TAILLE + 1]
+		VAR chaine1 : T <- ""
+		VAR chaine2 : T <- ""
+		VAR i : N <- 0
+		VAR j : N <- 0
+		VAR max : N <- 0
+		VAR iMax : N <- 0
+		VAR jMax : N <- 0
+		VAR sousChaineLaPlusLongue : T <- ""
+	FIN variables locales
+	
+	AFFICHER "Entrez un 1er texte (min. 1 caractère - max. ", TAILLE ," caractères)"
+	SAISIR chaine1
+	
+	AFFICHER "Entrez un 2eme texte (min. 1 caractère - max. ", TAILLE," caractères)"
+	SAISIR chaine2
+	
+	SI (longueur(chaine1) < 1 OU longueur(chaine1) > TAILLE OU longueur(chaine2) < 1 OU longueur(chaine2) > TAILLE)
+		ALORS
+			AFFICHER "Le 1er texte et/ou le 2ème texte ne respecte pas le nombre de caractères demandés"
+		SINON
+			// remplissage 1ère ligne et 1ère colonne du tableau avec des 0
+			tab[1][1] <- 0
+			POUR i ALLANT DE 2 A TAILLE
+				tab[i][1] <- 0
+				tab[1][i] <- 0
+			i SUIVANT
+			
+			// remplissage à partir de la 2ème ligne et 2ème colonne
+			POUR i ALLANT DE 2 A longueur(chaine1) + 1
+				POUR j ALLANT DE 2 A longueur(chaine2) + 1
+					SI caract(chaine1, i) = caract(chaine2, j)
+						ALORS
+							tab[i][j] <- tab[i-1][j-1] + 1
+							SI tab[i][j] > max
+								ALORS
+									max  <- tab[i][j]
+									iMax <- i
+									jMax <- j
+							FINSI
+						SINON
+							tab[i][j] <- 0
+					FINSI				
+				j SUIVANT
+			i SUIVANT
+			
+			// La sous-chaîne la plus longue est remplie avec les caractères correspondants
+			sousChaineLaPlusLongue <- sousChaine(chaine1, iMax-max+1 , iMax)
+			
+			
+			// Affichage du résultat
+			AFFICHER "La sous-chaîne la plus longue possède ", max, " caractère(s) et est ", sousChaineLaPlusLongue
+	FINSI
+
+FIN recherche plus longue sous-chaîne

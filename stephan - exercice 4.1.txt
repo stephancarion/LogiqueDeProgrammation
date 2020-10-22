@@ -1,0 +1,15 @@
+Début validation entrée
+	VARIABLES LOCALES
+		var entree : N <- 0
+	FIN VARIABLES LOCALES
+	
+	Ecrire "Veuillez entrer 0, 1, 2, 3 , 4"
+	Saisir entree
+	TANT QUE entree < 0 ET entree > 4
+		Ecrire "Veuillez entrer 0, 1, 2, 3 , 4"
+		Saisir entree
+	FIN TANT QUE	
+	
+	Ecrire "Bravo !"
+
+Fin validation entrée

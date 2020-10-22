@@ -1,0 +1,21 @@
+DEBUT copie plus ou moins
+	VARIABLES LOCALES
+		const TAILLE : N <- 10
+		var tab1 : N[TAILLE]
+		var tab2 : B[TAILLE]
+		var tab3 : N[TAILLE]
+		var i : N <- 0
+	FIN VARIABLES LOCALES
+	
+	POUR i ALLANT DE 1 A TAILLE
+		SI tab2[i]
+			ALORS
+				tab3[i] <- tab1[i]
+			SINON
+				tab3[i] <- tab1[i] * (-1)
+		FINSI
+	i SUIVANT
+	
+
+
+FIN copie plus ou moins

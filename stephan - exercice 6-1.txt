@@ -1,0 +1,40 @@
+DEBUT Recherche caractère
+	VARIABLES LOCALES
+		var position : N <- 0
+		var premierePosition : N <- 0
+		var dernierePosition : N <- 0
+		var nombreOccurence : N <- 0
+		var texte : T <- ""
+		var car : C <- '-'
+		var trouve : B <- Faux
+	FIN VARIABLES LOCALES
+	
+	AFFICHER "Entrez du texte"
+	SAISIR texte
+	AFFICHER "Entrez un caractère"
+	SAISIR car	
+	
+	POUR position ALLANT DE 1 A longueur(texte)
+		SI caract(texte,position) = car
+			ALORS
+				nombreOccurence <- nombreOccurence + 1
+				dernierePosition <- position
+				SI NON(trouve)
+					ALORS
+						trouve <- Vrai
+						premierePosition <- position						
+				FINSI				
+		FINSI	
+	position SUIVANT
+	
+	SI trouve
+		ALORS
+			AFFICHER "Le caractère a été trouvé"
+			AFFICHER "Première position : ", premierePosition
+			AFFICHER "Dernière position : ", dernierePosition
+			AFFICHER "Nombre d'occurence : ", nombreOccurence
+		SINON
+			AFFICHER "Le caractère n'a pas été trouvé"
+	FINSI
+	
+FIN Recherche caractère

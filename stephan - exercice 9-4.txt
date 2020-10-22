@@ -1,0 +1,54 @@
+DEBUT carré magique
+	VARIABLES LOCALES
+		CONST TAILLE : N <- 4
+		VAR tab : N[TAILLE][TAILLE]
+		VAR ligne : N <- 0
+		VAR colonne : N <- 0
+		VAR i : N <- 0
+		VAR somme : N <- 0
+		VAR sommeDiagPrinc : N <-0
+		VAR sommeDiagSecond : N <- 0
+		VAR magique : B <- Vrai
+	FIN VARIABLES LOCALES
+	
+	sommeDiagPrinc <- 0
+	sommeDiagSecond <- 0	
+	POUR i ALLANT de 1 A TAILLE
+		sommeDiagPrinc <- sommeDiagPrinc + tab[i][i]
+		sommeDiagSecond <- sommeDiagSecond + tab[i][TAILLE-i+1]
+	i SUIVANT
+	
+	magique <- sommeDiagPrinc = sommeDiagSecond	
+	
+	ligne <- 1
+	TANT QUE magique ET ligne <= TAILLE
+		somme <- 0		
+		POUR colonne ALLANT DE 1 A TAILLE
+			somme <- somme + tab[ligne][colonne]
+		colonne SUIVANT
+		
+		magique <- somme = sommeDiagPrinc
+		
+		ligne <- ligne + 1		
+	FIN TANT QUE
+	
+	colonne <- 1
+	TANT QUE magique ET colonne <= TAILLE
+		somme <- 0		
+		POUR ligne ALLANT DE 1 A TAILLE
+			somme <- somme + tab[ligne][colonne]
+		ligne SUIVANT
+		
+		magique <- somme = sommeDiagPrinc
+		
+		colonne <- colonne + 1		
+	FIN TANT QUE
+	
+	SI magique
+		ALORS
+			AFFICHER "Le carré est magique"
+		SINON
+			AFFICHER "Le carré n'est pas magique"
+	FINSI
+	
+FIN carré magique

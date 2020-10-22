@@ -1,0 +1,34 @@
+DEBUT copie tableau - 1 variable
+	VARIABLES LOCALES
+		CONST NB_LIGNE : N <- 4
+		CONST NB_COLONNE : N <- 3
+		VAR tab : N[NB_LIGNE][NB_COLONNE]
+		VAR	vect : N[NB_LIGNE*NB_COLONNE]
+		VAR case : N <- 0
+	FIN VARIABLES LOCALES	
+		
+	POUR case ALLANT DE 1 A NB_LIGNE*NB_COLONNE
+		vect[case] <- tab[((case-1) DIV NB_COLONNE) + 1][(case-1) MOD NB_COLONNE + 1]
+	case SUIVANT
+	
+FIN copie tableau - 1 variable
+***********************************
+DEBUT copie tableau - 3 variables
+	VARIABLES LOCALES
+		CONST NB_LIGNE : N <- 4
+		CONST NB_COLONNE : N <- 3
+		VAR tab : N[NB_LIGNE][NB_COLONNE]
+		VAR	vect : N[NB_LIGNE*NB_COLONNE]
+		VAR lig : N <- 0
+		VAR col : N <- 0
+		VAR pos : N <- 0
+	FIN VARIABLES LOCALES	
+		
+	POUR lig ALLANT de 1 A NB_LIGNE
+		POUR col ALLANT DE 1 A NB_COLONNE
+			vect[pos] <- tab[lig,col]
+			pos <- pos + 1
+		col SUIVANT
+	lig SUIVANT
+	
+FIN copie tableau - 3 variables

@@ -1,0 +1,41 @@
+DEBUT somme suite de nombres
+	VARIABLES LOCALES
+		var valeur1 : N <- 0
+		var valeur2 : N <- 0
+		var temp : N <- 0
+		var terme : N <- 0
+		var somme : N <- 0
+	FIN VARIABLES LOCALES
+	
+	REPETER
+		ECRIRE "Entrez un 1er nombre entier"
+		SAISIR valeur1
+	JUSQU'A CE QUE valeur1 MOD 1 = 0
+	REPETER
+		ECRIRE "Entrez un 2e nombre entier"
+		SAISIR valeur2
+	JUSQU'A CE QUE valeur2 MOD 1 = 0
+	
+	// permutation éventuelle des 2 valeurs pour que :
+	// - valeur1 soit toujours la borne inférieure 
+	// - valeur2 soit toujours la borne supérieure
+	SI valeur 1 > valeur2 
+		ALORS
+			temp <- valeur1
+			valeur1 <- valeur2
+			valeur2 <- temp
+	FINSI
+	
+	ECRIRE "Total ="
+	POUR terme ALLANT DE valeur1 A valeur2
+		somme <- somme + terme
+		SI terme = valeur1
+			ALORS
+				ECRIRE terme
+			SINON
+				ECRIRE "+", terme
+		FINSI
+	terme SUIVANT
+	ECRIRE "=", somme
+	
+FIN somme suite de nombre

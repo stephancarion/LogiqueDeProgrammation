@@ -1,0 +1,87 @@
+Début min max
+	VARIABLES LOCALES
+		var entree : N <- 0
+		var min : N <- 0
+		var max : N <- 0
+		var cpt : N <- 0
+		var premierMin : N <- 0
+		var premierMax : N <- 0
+		var dernierMin : N <- 0
+		var dernierMax : N <- 0
+		var nombreOccurenceMin : N <- 0
+		var nombreOccurenceMax : N <- 0
+	FIN VARIABLES LOCALES
+	
+	ECRIRE "Veuillez entrer un nombre ou 100 pour arrêter la série"	
+	SAISIR entree	
+	TANT QUE entree =/= 100
+		cpt <- cpt + 1
+		
+		SI cpt = 1
+			ALORS 
+				min <- entree
+				max <- entree
+				premierMin <- 1
+				premierMax <- 1
+				dernierMin <- 1
+				dernierMax <- 1
+				nombreOccurenceMin <- 1
+				nombreOccurenceMax <- 1
+			SINON
+				SI entree < min
+					ALORS
+						min <- entree
+						premierMin <- cpt
+						dernierMin <- cpt
+						nombreOccurenceMin <- 1
+					SINON
+						SI entree > max
+							ALORS
+								max <- entree
+								premierMax <- cpt
+								dernierMax <- cpt
+								nombreOccurenceMax <- 1
+							SINON
+								SI entree = min ET min = max
+									ALORS
+										dernierMin <- cpt
+										dernierMax <- cpt
+										nombreOccurenceMin <- nombreOccurenceMin + 1
+										nombreOccurenceMax <- nombreOccurenceMax + 1
+									SINON
+										SI entree = min 
+											ALORS
+												dernierMin <- cpt
+												nombreOccurenceMin <- nombreOccurenceMin + 1
+											SINON
+												SI entree = max
+													ALORS
+														dernierMax <- cpt
+														nombreOccurenceMax <- nombreOccurenceMax + 1
+												FINSI
+										FINSI
+								FINSI
+						FINSI
+				FINSI
+		FINSI	
+				
+		ECRIRE "Veuillez entrer un nombre ou 100 pour arrêter la série"
+		SAISIR entree
+	FIN TANT QUE
+	
+	SI cpt =/= 0
+		ALORS		
+			ECRIRE "Le nombre min de la série est ", min
+			ECRIRE "Nombre occurence de min = ", nombreOccurenceMin
+			ECRIRE "Première occurence de min en position ", premierMin
+			ECRIRE "Dernière occurence de min en position ", dernierMin
+			
+			ECRIRE "Le nombre max de la série est ", max
+			ECRIRE "Nombre occurence de max = ", nombreOccurenceMax
+			ECRIRE "Première occurence de max en position ", premierMax
+			ECRIRE "Dernière occurence de max en position ", dernierMax
+		SINON
+			ECRIRE "Vous n'avez pas entré de nombre dans la série"
+	FINSI
+
+Fin min max

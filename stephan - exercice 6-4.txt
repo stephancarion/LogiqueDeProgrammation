@@ -1,0 +1,38 @@
+DEBUT sous-chaine
+	VARIABLES LOCALES
+		var texte : T <- ""
+		var sousChaine : T <- ""
+		var positionDepart : N <- 0
+		var positionFin : N <- 0
+		var position : N <- 0
+	FIN VARIABLES LOCALES
+	
+	AFFICHER "Entrez un texte de minimum 1 caractère"
+	SAISIR texte
+	
+	SI longueur(texte) < 1
+		ALORS
+			AFFICHER "Le texte entré ne contenait pas au minimum 1 caractère. Fin de programme"
+		SINON
+			AFFICHER "Entrez un entier entre 1 et ", longueur(texte), " correspondant au début de la sous-chaine (cette borne sera comprise)."
+			SAISIR positionDepart
+			SI NON(positionDepart MOD 1 = 0 ET positionDepart >= 1 ET positionDepart <= longueur(texte))
+				ALORS
+					AFFICHER "Valeur non valide pour la position de départ. Fin de programme"
+				SINON
+					AFFICHER "Entrez un entier entre ", positionDepart, " et ", longueur(texte) + 1 , " correspondant à la fin de la sous-chaine (cette borne ne sera pas comprise)."
+					SAISIR positionFin
+					SI NON(positionFin MOD 1 = 0 ET positionFin >= positionDepart ET positionFin <= longueur(texte) + 1)
+						ALORS
+							AFFICHER "Valeur non valide pour la position de fin. Fin de programme"
+						SINON
+							POUR position ALLANT DE positionDepart A positionFin - 1
+								sous-chaine <- sous-chaine (+) caract(texte,position)
+							position SUIVANT
+							AFFICHER "La texte de départ était : ", texte
+							AFFICHER "La sous-chaine entre la borne ", positionDepart ," (comprise) et la borne ", positionFins ," (non comprise) est :" sousChaine
+					FINSI
+			FINSI
+	FINSI
+		
+FIN sous-chaine

@@ -1,0 +1,22 @@
+DEBUT factorielle
+	VARIABLES LOCALES
+		var factorielle : N <- 0
+		var facteurProduit : N <- 0
+		var produit : N <- 1
+	FIN VARIABLES LOCALES
+	
+	ECRIRE "Entrez un nombre entier positif pour en calculer la factorielle"
+	SAISIR factorielle
+	
+	SI NON(factorielle MOD 1 = 0 ET factorielle >= 0)
+		ALORS
+			ECRIRE "Impossible de calculer la factorielle de ", factorielle
+		SINON
+			facteurProduit <- factorielle
+			TANT QUE facteurProduit >= 2
+				produit <- produit * facteurProduit
+				facteurProduit <- facteurProduit -1				
+			FIN TANT QUE
+			ECRIRE factorielle, "!=", produit
+	FINSI
+FIN factorielle

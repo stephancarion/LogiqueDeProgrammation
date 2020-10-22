@@ -1,0 +1,69 @@
+Début min max de luxe
+	VARIABLES LOCALES
+		var cpt : N <- 0
+		var entreeActuelle : N <- 0		
+		var entreePrecedente : N <-0
+		var nombreValeurCroissanteSuiteEnCours : N <- 0
+		var nombreValeurCroissantePlusGrandeSuiteEnregistree : N <- 0
+		var positionDepartSuiteCroissanteEnCours : N <- 0
+		var positionDepartPlusGrandeSuiteCroissanteEnregistree : N <- 0
+		var positionFinSuiteCroissanteEnCours : N <- 0
+		var positionFinPlusGrandeSuiteCroissanteEnregistree : N <- 0
+		var nombreOccurencePlusGrandSuiteCroissante : N <- 0
+	FIN VARIABLES LOCALES
+	
+	ECRIRE "Entrez un nombre ou 100 pour sortir"
+	SAISIR entreeActuelle
+	
+	SI entreeActuelle =/= 100
+		ALORS
+			cpt <- cpt +1
+			nombreValeurCroissanteSuiteEnCours <- 1
+			nombreValeurCroissantePlusGrandeSuiteEnregistree <- 1
+			positionDepartSuiteCroissanteEnCours <- 1
+			positionDepartPlusGrandeSuiteCroissanteEnregistree <- 1
+			positionFinSuiteCroissanteEnCours <- 1
+			positionFinPlusGrandeSuiteCroissanteEnregistree <- 1
+			nombreOccurencePlusGrandSuiteCroissante <- 1
+			ECRIRE "Entrez un nombre ou 100 pour sortir"
+			SAISIR entreeActuelle
+			TANTQUE entreeActuelle =/= 100
+				cpt <- cpt +1		
+				
+				SI entreeActuelle > entreePrecedente
+					ALORS
+						nombreValeurCroissanteSuiteEnCours <- nombreValeurCroissanteSuiteEnCours +1
+						positionFinSuiteCroissanteEnCours <- cpt
+					SINON
+						nombreValeurCroissanteSuiteEnCours <- 1
+						positionDepartSuiteCroissanteEnCours <- cpt
+						positionFinSuiteCroissanteEnCours <- cpt
+				FINSI
+				
+				SI nombreValeurCroissanteSuiteEnCours > nombreValeurCroissantePlusGrandeSuiteEnregistree
+					ALORS
+						nombreValeurCroissantePlusGrandeSuiteEnregistree <- nombreValeurCroissanteSuiteEnCours
+						positionDepartPlusGrandeSuiteCroissanteEnregistree <- positionDepartSuiteCroissanteEnCours
+						positionFinPlusGrandeSuiteCroissanteEnregistree <- positionFinSuiteCroissanteEnCours
+						nombreOccurencePlusGrandSuiteCroissante <- 1
+					SINON
+						SI nombreValeurCroissanteSuiteEnCours = nombreValeurCroissantePlusGrandeSuiteEnregistree
+							ALORS
+								nombreOccurencePlusGrandSuiteCroissante <- nombreOccurencePlusGrandSuiteCroissante +1
+						FINSI
+				FINSI	
+				
+				entreePrecedente <- entreeActuelle
+				
+				ECRIRE "Entrez un nombre ou 100 pour sortir"
+				SAISIR entreeActuelle
+			FINTANTQUE
+			ECRIRE "La(les) plus grande(s) suite(s) de valeurs croissantes contiennent ", nombreValeurCroissantePlusGrandeSuiteEnregistree ," valeurs."
+			ECRIRE "Le nombre d'occurence de cette(ces) plus grande(s) suite est ", nombreOccurencePlusGrandSuiteCroissante
+			ECRIRE "La première de cette(ces) occurence(s) démarre en position ",positionDepartPlusGrandeSuiteCroissanteEnregistree,
+				"et se termine en position ", positionFinPlusGrandeSuiteCroissanteEnregistree
+		SINON
+			ECRIRE "Pas de valeur entrée. Fin de programme"
+	FINSI
+
+Fin min max de luxe

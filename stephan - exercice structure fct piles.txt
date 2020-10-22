@@ -1,0 +1,40 @@
+FONCTION taille (IN p : Pile) : N
+	DEBUT DECLARATION VARIABLES LOCALES
+		VAR resultat : N <- 0
+	FIN VARIABLES LOCALES
+	
+	temp <- p
+	TANT QUE temp.suivant =/= null
+		resultat <- resultat + 1
+		p <- p.suivant		
+	FIN TANT QUE
+	
+	RETOURNE resultat
+FIN taille
+
+
+
+FONCTION remove(IN/OUT p : Pile, IN pos : N) : N
+	DEBUT DECLARATION VARIABLES LOCALES
+		VAR i : N <- 0
+		VAR temp : Pile
+		VAR valeurRetour : N <-0
+	FIN VARIABLES LOCALES
+	
+	SI pos = 0
+		ALORS
+			p <- p.suivant
+			valeurRetour <- p.valeur
+		SINON
+			temp <- p
+			POUR i ALLANT DE 0 A pos -2
+				temp <- temp.suivant
+			i SUIVANT			
+			valeurRetour <- temp.valeur			
+	FINSI	
+FIN removeTANT QUE pos > 0
+		p <- p.suivant
+		pos <- pos - 1
+	FIN TANT QUE
+	
+	val <- p.valeur

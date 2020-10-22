@@ -1,0 +1,26 @@
+Début équation 1er degré
+	
+	Variables locales
+		var a : N <- 0
+		var b : N <- 0
+	Fin variables locales
+	
+	Ecrire "Programme qui résout l'équation ax + b = 0"
+	Ecrire "Entrez a "
+	Saisir a
+	Ecrire "Entrez b "
+	Saisir b
+
+	Si a != 0
+		Alors
+			Ecrire "La solution est x = ", -b/a
+		Sinon
+			Si b = 0
+				Alors
+					Ecrire "Solution indéterminée"
+				Sinon
+					Ecrire "Solution impossible"
+			FinSi
+	FinSi
+
+Fin équation 1er degré

@@ -1,0 +1,78 @@
+Début comparaison 3 nombres
+	VARIABLES LOCALES
+		var a : N <- 0
+		var b : N <- 0
+		var c : N <- 0
+	FIN VARIABLES LOCALES
+	
+	ECRIRE "Programme qui compare 3 nombre"
+	ECRIRE "1er nombre : "
+	SAISIR a
+	ECRIRE "2e nombre : "
+	SAISIR b
+	ECRIRE "3e nombre : "
+	SAISIR c
+	
+	SI a < b
+		ALORS
+			SI c < a
+				ALORS
+					ECRIRE c, "<", a, "<", b
+				SINON
+					SI c = a
+						ALORS
+							ECRIRE c, "=", a, "<", b
+						SINON
+							SI c < b
+								ALORS
+									ECRIRE a, "<", c, "<", b
+								SINON
+									SI c = b
+										ALORS
+											ECRIRE a, "<", c, "=", b
+										SINON
+											ECRIRE a, "<", b, "<", c
+									FINSI
+							FINSI
+					FINSI
+			FINSI
+		SINON
+			SI b < a
+				ALORS
+					SI c < b
+						ALORS
+							ECRIRE c, "<", b, "<", a
+						SINON
+							SI c = b
+								ALORS
+									ECRIRE c, "=", b, "<", a
+								SINON
+									SI c < a
+										ALORS
+											ECRIRE b, "<", c, "<", a
+										SINON
+											SI c = a
+												ALORS
+													ECRIRE b, "<", a, "=", c
+												SINON
+													ECRIRE b, "<", a, "<", c
+											FINSI
+									FINSI
+							FINSI
+					FINSI
+				SINON
+					SI c < a
+						ALORS
+							ECRIRE c, "<", a, "=", b
+						SINON
+							SI c = a
+								ALORS
+									ECRIRE c, "=", a, "=", b
+								SINON
+									ECRIRE a, "=", b, "<", c
+							FINSI
+					FINSI
+			FINSI
+	FINSI
+	
+Fin comparaison 3 nombres

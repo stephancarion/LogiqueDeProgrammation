@@ -1,0 +1,29 @@
+DEBUT inversion mots
+	VARIABLES LOCALES
+		var phraseInitiale : T <- ""
+		var phraseAvecMotsInverses : T <- ""
+		var mot : T <- ""
+		var position : N <- 0
+	FIN VARIABLES LOCALES
+	
+	AFFICHER "Entrez un texte avec plusieurs mots :"
+	SAISIR phraseInitiale
+	
+	SI longueur(phraseInitiale) > 0
+		ALORS
+			POUR position ALLANT DE 1 A longueur(phraseInitiale)
+				SI caract(phraseInitiale, position) =/= ' '
+					ALORS
+						mot <- mot (+) caract(phraseInitiale, position)
+					SINON
+						phraseAvecMotsInverses <- ' ' (+) mot (+) phraseAvecMotsInverses
+						mot <- ""
+				FINSI		
+			position SUIVANT
+			phraseAvecMotsInverses <- mot (+) phraseAvecMotsInverses			
+			AFFICHER "Phrase avec inversion des mots : ", phraseAvecMotsInverses
+	FINSI
+	
+	
+	
+FIN inversion mots

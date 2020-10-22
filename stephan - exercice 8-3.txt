@@ -1,0 +1,32 @@
+DEBUT nombres parfaits
+	DEBUT variables locales
+		VAR nombre : N <- 0
+		VAR somme : N <- 0
+		VAR diviseur : N <- 0
+	FIN variables locales
+	
+	POUR nombre ALLANT de 2 A 100
+		// 1 est diviseur de tout nombre
+		somme <- 1
+		diviseur <- 2
+		
+		TANT QUE diviseur * diviseur < nombre
+			SI nombre MOD diviseur = 0
+				ALORS
+					somme <- somme + diviseur + nombre/diviseur			
+			FINSI
+			diviseur <- diviseur + 1
+		FIN TANT QUE
+		
+		SI diviseur * diviseur = nombre
+			ALORS
+				somme <- somme + diviseur			
+		FINSI
+		
+		SI somme = nombre
+			ALORS
+				AFFICHER nombre
+		FINSI
+	nombre SUIVANT
+
+FIN nombres parfaits

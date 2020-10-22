@@ -1,0 +1,38 @@
+DEBUT rechercher remplacer
+	VARIABLES LOCALES
+		var texteSource : T <- ""
+		var texteRecherche : T <- ""
+		var texteRemplacement : T <- ""
+		var position : N <- 0
+	FIN VARIABLES LOCALES
+	
+	AFFICHER "Entrez le texte source"
+	SAISIR texteSource	
+	AFFICHER "Entrez le texte recherché"
+	SAISIR texteRecherche	
+	AFFICHER "Entrez le texte de remplacement"
+	SAISIR texteRemplacement
+	
+	SI texteRecherche = ""
+		ALORS
+			AFFICHER "Impossible de recherché une chaîne de caractère vide"
+		SINON
+			SI longueur(texteRecherche) > longueur (texteSource)
+				ALORS
+					AFFICHER "La longueur du texte recherché est plus longue que le texte source."
+				SINON
+					position <- 1
+					TANT QUE position <= longueur(texteSource) - longueur (texteRecherche) + 1
+						SI sousChaine(texteSource, position, position + longueur (texteRecherche)) = texteRecherche
+							ALORS
+								texteSource <- sousChaine(texteSource, 1, position) (+) texteRemplacement (+) sousChaine(texteSource, position + longueur(texteRecherche), longueur(texteSource)+1)
+								position <- position + longueur(texteRemplacement)
+							SINON
+								position <- position + 1.
+						FINSI				
+					FIN TANT QUE
+					AFFICHER "Le texte source est :", texteSource				
+			FINSI			
+	FINSI
+		
+FIN rechercher remplacer
